@@ -7,53 +7,56 @@ class CustomBottomNavigationBar extends StatelessWidget {
   final List<GlobalKey<NavigationIconState>> iconKeys;
 
   const CustomBottomNavigationBar({
-    Key? key,
+    super.key,
     required this.selectedIndex,
     required this.onItemSelected,
     required this.iconKeys,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 60,
-      decoration: BoxDecoration(
-        color: Colors.white,
-        border: Border(
-          top: BorderSide(
-            color: Colors.grey.shade200,
-            width: 0.4,
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 18.0),
+      child: Container(
+        height: 60,
+        decoration: BoxDecoration(
+          color: Colors.white,
+          border: Border(
+            top: BorderSide(
+              color: Colors.grey.shade200,
+              width: 0.4,
+            ),
           ),
         ),
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: <Widget>[
-          NavigationIcon(
-            key: iconKeys[0],
-            icon: Icons.home,
-            onPressed: () => onItemSelected(0),
-            isSelected: selectedIndex == 0,
-          ),
-          NavigationIcon(
-            key: iconKeys[1],
-            icon: Icons.search,
-            onPressed: () => onItemSelected(1),
-            isSelected: selectedIndex == 1,
-          ),
-          NavigationIcon(
-            key: iconKeys[2],
-            icon: Icons.notifications,
-            onPressed: () => onItemSelected(2),
-            isSelected: selectedIndex == 2,
-          ),
-          NavigationIcon(
-            key: iconKeys[3],
-            icon: Icons.account_circle,
-            onPressed: () => onItemSelected(3),
-            isSelected: selectedIndex == 3,
-          ),
-        ],
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: <Widget>[
+            NavigationIcon(
+              key: iconKeys[0],
+              icon: Icons.home,
+              onPressed: () => onItemSelected(0),
+              isSelected: selectedIndex == 0,
+            ),
+            NavigationIcon(
+              key: iconKeys[1],
+              icon: Icons.search,
+              onPressed: () => onItemSelected(1),
+              isSelected: selectedIndex == 1,
+            ),
+            NavigationIcon(
+              key: iconKeys[2],
+              icon: Icons.notifications,
+              onPressed: () => onItemSelected(2),
+              isSelected: selectedIndex == 2,
+            ),
+            NavigationIcon(
+              key: iconKeys[3],
+              icon: Icons.account_circle,
+              onPressed: () => onItemSelected(3),
+              isSelected: selectedIndex == 3,
+            ),
+          ],
+        ),
       ),
     );
   }
