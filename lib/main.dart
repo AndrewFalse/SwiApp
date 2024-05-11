@@ -1,5 +1,6 @@
 import 'package:design_test/pages/cards_page.dart';
 import 'package:design_test/pages/profile_page.dart';
+import 'package:design_test/pages/test.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -75,6 +76,9 @@ class _SwiperExamplePageState extends State<SwiperExamplePage> with TickerProvid
     });
     if (index == 0) {
       showPage = const CardsPage();
+    }
+    else if (index == 1) {
+      showPage = const Test();
     }
     else if (index == 3) {
       showPage = const ProfilePage();

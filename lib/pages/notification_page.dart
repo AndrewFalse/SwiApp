@@ -15,9 +15,7 @@ class NotificationPage extends StatefulWidget {
 
 class _NotificationPageState extends State<NotificationPage> {
   final List<Map<String, dynamic>> notifications = [
-    {'icon': Icons.notifications, 'text': 'Уведомление 1'},
-    {'icon': Icons.notifications, 'text': 'Уведомление 2'},
-    {'icon': Icons.notifications, 'text': 'Уведомление 3'},
+    {'title': "Новое уведомление", 'text': 'Уведомление 1'},
   ];
 
   @override
@@ -48,18 +46,20 @@ class _NotificationPageState extends State<NotificationPage> {
               ),
             ),
             SizedBox(height: 10),
-            SizedBox(
-              height: MediaQuery.of(context).size.height * 0.85,
-              width: MediaQuery.of(context).size.width * 0.95,
-              child: ListView.builder(
-                padding: EdgeInsets.zero,
-                itemCount: 20,
-                itemBuilder: (context, index) {
-                  return NotificationCard(
-                    icon: notifications[0]['icon'],
-                    text: notifications[0]['text'],
-                  );
-                },
+            Center(
+              child: SizedBox(
+                height: MediaQuery.of(context).size.height * 0.85,
+                width: MediaQuery.of(context).size.width * 0.95,
+                child: ListView.builder(
+                  padding: EdgeInsets.zero,
+                  itemCount: 20,
+                  itemBuilder: (context, index) {
+                    return NotificationCard(
+                      title: notifications[0]['title'],
+                      text: notifications[0]['text'],
+                    );
+                  },
+                ),
               ),
             ),
           ],
